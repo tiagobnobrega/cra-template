@@ -9,51 +9,51 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
-    case TYPES.FEATURE_A_LIST: {
+    case TYPES.LIST: {
       return {
         ...state,
         collection: payload.data,
       };
     }
-    case TYPES.FEATURE_A_ADD: {
+    case TYPES.ADD: {
       return {
         ...state,
         collection: [...state.collection, payload.data],
       };
     }
-    case TYPES.FEATURE_A_SELECT: {
+    case TYPES.SELECT: {
       return {
         ...state,
         collection: [...state.collection, payload.data],
       };
     }
-    case TYPES.FEATURE_A_REMOVE: {
+    case TYPES.REMOVE: {
       return {
         ...state,
         collection: state.collection.filter(e => e.id !== payload.id),
       };
     }
-    case TYPES.FEATURE_A_UPDATE: {
+    case TYPES.UPDATE: {
       return {
         ...state,
         collection: state.collection.map(e => (e.id === payload.data.id ? payload.data : e)),
       };
     }
-    case TYPES.FEATURE_A_REQUEST: {
+    case TYPES.REQUEST: {
       return {
         ...state,
         loading: true,
       };
     }
 
-    case TYPES.FEATURE_A_REQUEST_FAIL: {
+    case TYPES.REQUEST_FAIL: {
       return {
         ...state,
         loading: false,
         error: payload.e,
       };
     }
-    case TYPES.FEATURE_A_REQUEST_SUCCESS: {
+    case TYPES.REQUEST_SUCCESS: {
       return {
         ...state,
         loading: false,

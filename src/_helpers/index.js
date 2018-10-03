@@ -2,3 +2,8 @@
 const randomIntFromInterval = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 export const randomDelay = () => randomIntFromInterval(100, 500);
 export const wait = (value, delay) => new Promise(resolve => setTimeout(resolve, delay || randomDelay(), value));
+export const addTypeNamespace = (typeObj, namespace = '') =>
+  Object.keys(typeObj).reduce((acc, key) => {
+    acc[key] = `${namespace}/${typeObj[key]}`;
+    return acc;
+  }, {});

@@ -30,15 +30,17 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "start": "npm-run-all -p watch-css start:js",
-    "build": "npm-run-all build-css build:js",
+    "start": "npm-run-all -p watch:css start:js",
+    "build": "npm-run-all build:css build:js",
     "eject": "react-scripts eject",
     "test": "react-scripts test --env=jsdom",
     "storybook": "start-storybook -p 9009 -s public",
     "storybook:build": "build-storybook -s public",
     "start:js": "react-scripts start",
     "build:js": "react-scripts build",
-    "eject:js": "react-scripts eject"
+    "eject:js": "react-scripts eject",
+    "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch:css": "npm run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.11",
