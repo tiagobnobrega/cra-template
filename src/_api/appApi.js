@@ -1,5 +1,5 @@
 /* This file should contain API calls. Create as many of theses as necessary */
-import { wait } from 'src/_helpers';
+import { wait } from '_helpers';
 
 const db = {
   featureA: [
